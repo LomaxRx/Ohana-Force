@@ -1,0 +1,26 @@
+<apex:page controller="OhanaController" >
+
+    <apex:form >
+        <apex:pageblock title="Search">
+           
+            <apex:pageBlockButtons location="bottom" >
+                <apex:commandButton action="{!search}" value="Search" rerender="results"/>
+            </apex:pageBlockButtons>
+            <apex:pageblockSection title="Criteria" columns="2">
+                <apex:inputText value="{!searchterm}" label="Search"/>
+            </apex:pageblockSection>
+       </apex:pageBlock>
+         
+       <apex:pageBlock title="Search Results">          
+            <apex:pageBlockTable value="{!results}" var="r" id="results" width="100%">
+             <apex:column >
+                    <apex:facet name="header">Organization Name</apex:facet>
+                    <apex:outputLink value="/apex/ohana_organization?id={!r['organization']['_id']}">
+                       {!r['name']}
+                    </apex:outputLink>
+                </apex:column>                 
+            </apex:pageBlockTable>
+       </apex:pageBlock>
+
+    </apex:form>
+</apex:page>

@@ -1,0 +1,12 @@
+<apex:page controller="OhanaController" action="{!organization}">
+<apex:pageBlock title="{!results[0]['organization']['name']}">          
+            <apex:pageBlockTable value="{!results}" var="r" id="results" width="100%">
+            <apex:column value="{!r['address']['street']}">
+                    <apex:facet name="header">Address</apex:facet>
+                </apex:column>    
+             <apex:column value="{!r['short_desc']}">
+                    <apex:facet name="header">Services</apex:facet>
+                </apex:column>
+            </apex:pageBlockTable>
+</apex:pageBlock>
+</apex:page>
